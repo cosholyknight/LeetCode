@@ -5,8 +5,8 @@ public:
         int n = n1 + n2;
         if (n1 > n2) return findMedianSortedArrays(nums2, nums1);
         int partition = (n + 1) / 2;
-        if (n1 == 0) return n2 % 2 == 0 ? (nums2[n2 / 2] + nums2[n2 / 2 + 1]) /(double) 2 : nums2[n2 / 2];
-        if (n2 == 0) return n1 % 2 == 0 ? (nums2[n1 / 2] + nums2[n1 / 2 + 1]) /(double) 2 : nums2[n1 / 2];
+        if (n1 == 0) return n2 % 2 == 0 ? (nums2[n2 / 2] + nums2[n2 / 2 - 1]) /(double) 2 : nums2[n2 / 2];
+        if (n2 == 0) return n1 % 2 == 0 ? (nums2[n1 / 2] + nums2[n1 / 2 - 1]) /(double) 2 : nums2[n1 / 2];
         int left1 = 0;
         int right1 = n1;
         int cut1, cut2;
