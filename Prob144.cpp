@@ -11,11 +11,16 @@
  */
 class Solution {
 public:
-    bool hasPathSum(TreeNode* root, int targetSum) {
-        if (!root) return false;
-        if (!root->left && !root->right) return targetSum - root->val == 0;
-        bool leftPath = hasPathSum(root->right, targetSum - root->val);
-        bool rightPath = hasPathSum(root->left, targetSum - root->val);
-        return leftPath || rightPath;
+    void helper(vector<int> &ans, TreeNode* root) {
+        if (!root) return;
+        ans.push_back(root->val);
+        helper(ans, root->left);
+        helper(ans, root->right);
+        return;
+    }
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector <int> ans;
+        helper(ans, root);
+        return ans;
     }
 };
